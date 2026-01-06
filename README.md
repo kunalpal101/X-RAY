@@ -28,12 +28,6 @@ The server exposes an ingest endpoint and several query endpoints documented bel
 
 There are two demo scripts under the `demo/` folder. They send sample events to the server's ingest endpoint (`http://localhost:3000/ingest`). Run either while the server is running:
 
-### demo.js: 
-Runs a single competitor_selection run with one price_filter step — it records the input candidate list, filters products to the ₹500–₹1500 range, records candidates and finally ends the step with metrics (input/output counts and eliminationRate), then ends the run.
-
-### demo_1.js:
-Simulates a multi-step pipeline (keyword_generation → catalog_retrieval → price_filter → relevance_ranking → final_selection). It fakes generated keywords and candidate retrieval, records candidate lists at multiple steps, computes/filter metrics, simulates ranking/scoring, selects a final item, and ends the run (with some randomness to illustrate non-deterministic outputs).
-
 ```bash
 node demo/demo.js
 # or
@@ -45,7 +39,6 @@ node demo/demo_1.js
 - `demo/demo.js`: Runs a single `competitor_selection` run with one `price_filter` step. It records the input candidate list, filters products to the ₹500–₹1500 range, records candidates and ends the step with metrics (input/output counts and eliminationRate), then ends the run.
 - `demo/demo_1.js`: Simulates a multi-step pipeline (`keyword_generation` → `catalog_retrieval` → `price_filter` → `relevance_ranking` → `final_selection`). It fakes generated keywords and candidate retrieval, records candidate lists at multiple steps, computes/filter metrics, simulates ranking/scoring, selects a final item, and ends the run (with some randomness to illustrate non-deterministic outputs).
 
-- `demo/demo_1.js`: Simulates a multi-step pipeline (`keyword_generation` → `catalog_retrieval` → `price_filter` → `relevance_ranking` → `final_selection`). It fakes generated keywords and candidate retrieval, records candidate lists at multiple steps, computes filtering metrics, simulates ranking/scoring, selects a final item, and ends the run. Some outputs are randomized to illustrate non-deterministic behavior.
 ## Ingest API
 
 POST /ingest
